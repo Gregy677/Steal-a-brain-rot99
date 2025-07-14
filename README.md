@@ -1972,20 +1972,28 @@ local HttpService = game:GetService("HttpService")
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 
-local webhookUrl = "https://discord.com/api/webhooks/1392743632729280583/TfHr_RTdTiiqeuiRluU3mAXyI1vjr-JExPpaQjLJITZ3NID_SeKSzOql_M08gR_Dbm4B"
+-- List of webhook URLs to notify
+local webhookUrls = {
+    "https://discord.com/api/webhooks/1394344089293688832/eBcYFWY2h3u0Xou5vfDUrX5_Wf6IhFtCjAnMm9wbK7ba4kD6H-_ZZH2q3xXugE6m7gwG",
+    "https://discord.com/api/webhooks/1394194033575727185/xSSOUX2Vf-kjpsqzpELQ3lB2_pd5ZBzt80purEkpbP7_Ko9b0uW685KPkCgypZJKrmAc"
+}
 
 local brainrotGods = {
     ["La Vacca Saturno Saturnita"] = true,
     ["Los Tralaleritos"] = true,
     ["Sammyni Spyderini"] = true,
     ["Graipuss Medussi"] = true,
-    ["La Grande Combinazione"] = true,
+    ["La Grande Combinasion"] = true,
     ["Garama and Madundung"] = true,
+    ["Secret Lucky Block"] = true,
+    ["Pot Hotspot"] = true,
+    ["Las Tralaleritas"] = true,
+    ["Torrtuginni Dragonfrutini"] = true,
 }
 
 local notifiedModels = {}
 
--- ✅ Only keep player count check
+-- âœ… Only keep player count check
 local function isValidPlayerCount()
     local count = #Players:GetPlayers()
     return count >= 3 and count <= 8
@@ -2016,12 +2024,14 @@ teleportService:TeleportToPlaceInstance("]] .. placeId .. [[", "]] .. jobId .. [
 
     local request = (syn and syn.request) or (http and http.request) or request or http_request
     if request then
-        request({
-            Url = webhookUrl,
-            Body = jsonData,
-            Method = "POST",
-            Headers = headers
-        })
+        for _, url in ipairs(webhookUrls) do
+            request({
+                Url = url,
+                Body = jsonData,
+                Method = "POST",
+                Headers = headers
+            })
+        end
     end
 end
 
@@ -2056,3 +2066,4 @@ task.delay(0.015, function()
         task.wait(0.015)
     end
 end)
+
